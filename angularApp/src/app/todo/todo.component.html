@@ -1,0 +1,37 @@
+﻿<button style="position:fixed;
+right:10px;
+top:5px;"type="button" class="btn btn-default btn-sm" (click)="logout()">
+Log out
+</button>
+<h2>My Todo List</h2>
+
+
+    <input [(ngModel)]="newTask" type="text" size="50" placeholder="Add New">
+    <button style="padding: 5px 5px;" class="btn btn-primary" (click)="createTask()">Add New</button>
+
+
+<div cdkDropListGroup>
+    <div class="example-container">
+      <h2>To do</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="tasks"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of tasks" cdkDrag>{{item.task}}</div>
+      </div>
+    </div>
+  
+    <div class="example-container">
+      <h2>Done</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="done"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item.task}}</div>
+      </div>
+    </div>
+  </div>
